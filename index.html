@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&display=swap" rel="stylesheet"><title>My Best Friend's Food Story</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light;--who:#d6287f;--act:#c2570c;--food:#0f8a62;--where:#1f6fd1;--wb:#ffc9e1;--ab:#ffdf9e;--fb:#b9f2dc;--hb:#c6defe;--db:#e6d4ff}
+*{box-sizing:border-box}
+html{background:#fff6d6;color-scheme:light only}body{margin:0;background:linear-gradient(#fff6d6,#ffe3f0);font-family:"Comic Sans MS","Chalkboard SE",system-ui,sans-serif;color:#333;min-height:100vh}
+#app{max-width:480px;margin:0 auto;padding:10px 14px 20px;text-align:center}
+.top{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.bar{flex:1;height:12px;background:#fff;border-radius:9px;overflow:hidden;border:2px solid #fff}
+.bar i{display:block;height:100%;background:var(--food);transition:width .4s}
+.step{font-size:14px;font-weight:bold}
+h1{font-size:28px;margin:10px 0}h2{font-size:24px;margin:8px 0}p{font-size:19px;margin:8px 0}
+.big{font-size:56px;margin:8px 0}
+button{font:inherit;cursor:pointer;color:#222}.b,.c,.slot,.sb,.book,.read{color:#222}.go,.nxt{color:#fff!important}.nxt:disabled{color:#fff!important}.c.on{color:#064}
+.b{min-height:56px;padding:10px 20px;font-size:20px;font-weight:bold;border:0;border-radius:18px;background:#fff;box-shadow:0 4px 0 #0002;margin:6px 4px}
+.b:disabled{opacity:.4}
+.go{background:var(--food);color:#fff;font-size:24px;min-width:70%}
+.sm{font-size:17px;min-height:50px;background:#fff3b0}
+.home{min-height:44px;padding:6px 12px;font-size:18px;margin:0}
+.g{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:10px 0}
+.c{min-height:60px;padding:8px 16px;font-size:20px;border:3px solid #fff;border-radius:18px;background:#fff;box-shadow:0 4px 0 #0002;flex:1 1 42%}
+.c.on{border-color:var(--food);background:#d8fff0}
+.c.t{flex:1 1 100%;text-align:left}
+.sb{font-size:30px;font-weight:bold;background:#fff;border-radius:20px;padding:16px 10px;margin:10px 0;min-height:80px;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px;border:4px dashed #ffd36b}
+.w{color:var(--who)}.a{color:var(--act)}.f{color:var(--food)}.p{color:var(--where)}
+.strip{display:flex;gap:4px;justify-content:center;align-items:center;font-size:13px;font-weight:bold;margin:8px 0;flex-wrap:wrap}
+.strip span{padding:6px 9px;border-radius:12px;color:#222;font-size:14px}
+.bx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+.bx div{border-radius:18px;padding:16px 6px;color:#222;font-size:20px;font-weight:bold;min-height:90px;display:flex;flex-direction:column;justify-content:center}
+.bx small{font-size:15px;color:#444}
+.pop{animation:pop .5s}
+@keyframes pop{0%{transform:scale(.3) translateY(-30px);opacity:0}70%{transform:scale(1.1)}100%{transform:none;opacity:1}}
+.msg{font-size:21px;font-weight:bold;min-height:34px;margin:8px 0}
+.ok{color:#119a6b}.no{color:#d9534f}
+.nav{display:flex;justify-content:space-between;margin-top:14px}
+.nav .b{flex:1}
+.nxt{background:#c2570c;color:#fff;animation:pul 1.2s infinite}.nxt:disabled{animation:none;background:#bbb}@keyframes pul{50%{transform:scale(1.04)}}
+.slot{display:inline-block;min-width:80px;min-height:50px;padding:8px 12px;border-radius:14px;background:#fff;border:3px solid var(--where);font-size:20px;font-weight:bold}
+.book{background:#fff;border-radius:18px;padding:12px;text-align:left;font-size:21px;line-height:1.7;border:3px solid var(--where)}
+.read{background:#ffe0e0;border-radius:14px;padding:10px;font-size:20px;font-weight:bold;margin:8px 0}
+.d{color:#7a2fd0}.hint{background:#fff3b0;border-radius:14px;padding:8px;font-weight:bold;font-size:17px;margin:8px 0;color:#222}.line{font-size:21px;margin:4px 0}.blank{background:#ffe27a;border-radius:8px;padding:0 8px;color:#222}.g3{font-size:21px;font-weight:bold;margin:8px 0}.opt{display:block;width:100%;margin:8px 0}@media(max-width:420px){.c{flex:1 1 100%}}body{background:transparent;font-family:"Nunito","Varela Round","Trebuchet MS",system-ui,sans-serif;font-weight:700}
+html{background:linear-gradient(#dff3ff,#fff1d6) fixed;min-height:100%}html.wl{background:#58cc02}
+.b,.c{border:2px solid #e5e5e5;border-bottom-width:4px;box-shadow:none;border-radius:16px;font-weight:800}
+.b{text-transform:uppercase;letter-spacing:.6px;font-size:17px}
+.go,.nxt{background:#58cc02;border-color:#58a700;animation:none}
+.nxt:disabled,.go:disabled{background:#e5e5e5;border-color:#cfcfcf;color:#afafaf!important}
+.c{text-transform:none}.c.on{border-color:#84d8ff;background:#ddf4ff;color:#1899d6}
+.sb,.book{border:2px solid #e5e5e5;border-radius:16px}
+.bar{height:16px;background:#e5e5e5;border:0}.bar i{background:#58cc02;border-radius:9px}
+.sh{border-radius:16px;padding:14px;margin:12px 0;text-align:left;font-size:17px}
+.sh .b{width:100%;margin:10px 0 0}.sh.good{background:#d7ffb8;color:#3f8a00}.sh.badx{background:#ffdfe0;color:#d33}
+.sht{font-size:23px;font-weight:800}.rd{background:#ff4b4b;border-color:#ea2b2b;color:#fff}
+.slot{border-color:#e5e5e5;border-bottom-width:4px;border-radius:14px}
+.unit{background:#58cc02;color:#fff;border-radius:16px;padding:12px;font-size:20px;font-weight:800;margin:6px 0 18px;border-bottom:4px solid #58a700}.unit small{opacity:.85}
+.node{width:92px;height:92px;border-radius:50%;border:0;border-bottom:8px solid #58a700;background:#58cc02;font-size:38px;color:#fff}.node.dn{background:#ffc800;border-color:#e5a500}.node.lk{background:#e5e5e5;border-color:#afafaf;color:#999}
+.lt{font-size:16px;font-weight:800;color:#555;margin-top:4px}.bub{display:inline-block;background:#fff;border:2px solid #e5e5e5;border-radius:12px;padding:3px 12px;color:#58a700;font-weight:800;margin-bottom:6px;animation:pul 1.2s infinite}
+.hero{min-height:88vh;display:flex;flex-direction:column;justify-content:center;align-items:center;color:#fff;position:relative}
+.ht{font-size:22px;font-weight:800;letter-spacing:1px;text-shadow:0 2px 0 #0003}.hb{font-size:50px;font-weight:900;line-height:1;letter-spacing:2px;text-shadow:0 5px 0 #0003;margin:4px 0 8px}
+.hb i{font-style:normal;color:#d7ffb8}.tl{background:#fff!important;color:#2f7d00!important}.hm{margin-top:6px}.hp{font-size:20px;margin:6px 0 4px;text-shadow:0 2px 0 #0003}
+.tls{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;align-items:center;font-weight:800;margin:10px 0}
+.tl{color:#222;border-radius:12px;padding:6px 10px;font-size:14px;border-bottom:4px solid #0002;animation:fl 2.4s ease-in-out infinite}
+.fl{animation:fl 3s ease-in-out infinite}@keyframes fl{50%{transform:translateY(-8px)}}
+.st{opacity:.9;animation:tw 2s infinite}@keyframes tw{50%{opacity:.2}}
+.start{background:#fff;color:#3f8a00!important;border-color:#d7ffb8;font-size:24px;min-width:72%;min-height:66px;animation:pul 1.4s infinite}
+.ic{width:1.35em;height:1.35em;vertical-align:-.3em;display:inline-block}
+.ins{display:flex;align-items:center;gap:10px;justify-content:center;font-size:22px;font-weight:800;margin:10px 0}.ins span{text-align:left}
+.spk{width:46px;height:46px;border-radius:50%;border:2px solid #84d8ff;border-bottom-width:4px;background:#ddf4ff;font-size:20px;flex:none}
+.vi .ic{width:56px;height:56px}.vc{padding:10px}.vo{flex:1 1 28%}.vo .ic{width:64px;height:64px}.top .home{width:48px;padding:6px 0}
+</style></head><body><div id="app"></div>
+<script>
+const N=['Amira','Sam','Randeep','Nithya'],F=['nasi lemak','chapati','cendol','porridge'],D=['spicy','soft','sweet','creamy'],PRE=['in a','at the','by the','at'],PN=['restaurant','food court','street','home'],P=PRE.map((x,i)=>x+' '+PN[i]),G=['She','He','He','She'];
+const sv=x=>'<svg class="ic" viewBox="0 0 32 32">'+x+'</svg>';
+const NI=[sv('<circle cx="16" cy="17" r="10" fill="#ffd2a8"/><path d="M5 17a11 11 0 0 1 22 0c-3-6-7-7-11-7s-8 1-11 7z" fill="#5a3a22"/><path d="M5.5 16v10M26.5 16v10" stroke="#5a3a22" stroke-width="4" stroke-linecap="round"/><circle cx="24" cy="8" r="3" fill="#ff4f8b"/><circle cx="12" cy="18" r="1.3" fill="#333"/><circle cx="20" cy="18" r="1.3" fill="#333"/><path d="M13 22q3 3 6 0" stroke="#c0392b" fill="none" stroke-width="1.5" stroke-linecap="round"/>'),sv('<circle cx="16" cy="17" r="10" fill="#ffd2a8"/><path d="M6 15a10 10 0 0 1 20 0c-4-3-6-4-10-4s-6 1-10 4z" fill="#2b2b2b"/><circle cx="12" cy="18" r="1.3" fill="#333"/><circle cx="20" cy="18" r="1.3" fill="#333"/><path d="M13 22q3 3 6 0" stroke="#c0392b" fill="none" stroke-width="1.5" stroke-linecap="round"/>'),sv('<circle cx="16" cy="17" r="10" fill="#ffd2a8"/><path d="M6 15a10 10 0 0 1 20 0c-4-3-6-4-10-4s-6 1-10 4z" fill="#2b2b2b"/><circle cx="12" cy="18" r="1.3" fill="#333"/><circle cx="20" cy="18" r="1.3" fill="#333"/><path d="M13 22q3 3 6 0" stroke="#c0392b" fill="none" stroke-width="1.5" stroke-linecap="round"/>'),sv('<circle cx="16" cy="17" r="10" fill="#ffd2a8"/><path d="M5 17a11 11 0 0 1 22 0c-3-6-7-7-11-7s-8 1-11 7z" fill="#5a3a22"/><path d="M5.5 16v10M26.5 16v10" stroke="#5a3a22" stroke-width="4" stroke-linecap="round"/><circle cx="24" cy="8" r="3" fill="#ff4f8b"/><circle cx="12" cy="18" r="1.3" fill="#333"/><circle cx="20" cy="18" r="1.3" fill="#333"/><path d="M13 22q3 3 6 0" stroke="#c0392b" fill="none" stroke-width="1.5" stroke-linecap="round"/>')],FI=[sv('<ellipse cx="16" cy="21" rx="14" ry="8" fill="#fff" stroke="#bbb"/><path d="M7 20a9 9 0 0 1 18 0z" fill="#fff4d6" stroke="#e0cfa0"/><circle cx="23" cy="19" r="3.5" fill="#fff" stroke="#999"/><circle cx="23" cy="19" r="1.6" fill="#ffc233"/><path d="M8 23q3-3 6 0z" fill="#d93025"/><circle cx="10" cy="15" r="2" fill="#6bbd45"/>'),sv('<circle cx="16" cy="16" r="13" fill="#e8b96a"/><circle cx="11" cy="12" r="2" fill="#b9823a"/><circle cx="20" cy="14" r="2.5" fill="#b9823a"/><circle cx="14" cy="21" r="2" fill="#b9823a"/><circle cx="22" cy="22" r="1.5" fill="#b9823a"/>'),sv('<path d="M4 14h24l-4 14H8z" fill="#e3f4ff" stroke="#6aa9d8" stroke-width="1.5"/><ellipse cx="16" cy="14" rx="12" ry="4" fill="#fff" stroke="#6aa9d8"/><path d="M9 18q2 3 4 0t4 0 4 0M10 23q2 3 4 0t4 0 4 0" stroke="#3fae49" stroke-width="2.4" fill="none" stroke-linecap="round"/><circle cx="12" cy="27" r="1.4" fill="#a8322d"/><circle cx="20" cy="26.5" r="1.4" fill="#a8322d"/><path d="M8 13q4 2 8 0t8 0" stroke="#8a5a2b" stroke-width="2" fill="none"/>'),sv('<path d="M3 14h26a13 13 0 0 1-26 0z" fill="#fff" stroke="#bbb"/><ellipse cx="16" cy="14" rx="13" ry="4" fill="#f3e5c8"/><circle cx="11" cy="14" r="1.2" fill="#3fae49"/><circle cx="17" cy="15" r="1.2" fill="#3fae49"/><circle cx="21" cy="13" r="1.2" fill="#d93025"/><path d="M11 9q-2-3 0-5M17 9q-2-3 0-5M23 9q-2-3 0-5" stroke="#aaa" stroke-width="1.5" fill="none" stroke-linecap="round"/>')],DI=[sv('<path d="M8 10c10-2 20 4 18 16-3-3-3-6-6-9-3-3-8-3-12-1z" fill="#e53935"/><path d="M8 10q-2-4 1-6" stroke="#2e7d32" stroke-width="3" fill="none" stroke-linecap="round"/>'),sv('<path d="M9 24a6 6 0 0 1 0-12 8 8 0 0 1 15 2 5 5 0 0 1 0 10z" fill="#e8f4ff" stroke="#8ec5ee" stroke-width="1.5"/>'),sv('<circle cx="16" cy="16" r="7" fill="#ff6fa8"/><path d="M9 16l-6-5v10zM23 16l6-5v10z" fill="#ffb3d1"/><path d="M12 12q4 4 8 8" stroke="#fff" stroke-width="2" fill="none"/>'),sv('<path d="M8 5h16l-2 23H10z" fill="#fff" stroke="#8ec5ee" stroke-width="1.5"/><path d="M9 12h14l-1 16H10z" fill="#eef5ff"/><path d="M11 18q3 2 5 0t5 0" stroke="#cfe0f5" stroke-width="2" fill="none"/>')],PI=[sv('<rect x="5" y="12" width="22" height="16" fill="#ffe0b2"/><path d="M3 12l3-7h20l3 7z" fill="#e53935"/><path d="M9 5l-2 7M16 5v7M23 5l2 7" stroke="#fff" stroke-width="2"/><rect x="13" y="18" width="6" height="10" fill="#8d5a2b"/><rect x="7" y="16" width="4" height="4" fill="#8ec5ee"/><rect x="21" y="16" width="4" height="4" fill="#8ec5ee"/>'),sv('<path d="M3 14L16 4l13 10z" fill="#fb8c00"/><rect x="5" y="14" width="22" height="14" fill="#fff3cf"/><path d="M5 14q2.5 4 5 0t5 0 5 0 5 0" fill="#ffb74d"/><rect x="8" y="20" width="6" height="8" fill="#a5d6a7"/><rect x="18" y="20" width="6" height="8" fill="#90caf9"/>'),sv('<path d="M2 28L12 6h8l10 22z" fill="#6b6b6b"/><path d="M16 9v4M16 17v4M16 25v3" stroke="#fff" stroke-width="2"/><path d="M27 6v14" stroke="#555" stroke-width="2"/><circle cx="27" cy="6" r="3" fill="#ffd54f"/>'),sv('<path d="M3 16L16 4l13 12z" fill="#e53935"/><rect x="6" y="16" width="20" height="12" fill="#ffe0b2"/><rect x="13" y="19" width="6" height="9" fill="#8d5a2b"/><rect x="8" y="18" width="4" height="4" fill="#8ec5ee"/>')],LOCK=sv('<rect x="7" y="14" width="18" height="14" rx="3" fill="#999"/><path d="M11 14v-3a5 5 0 0 1 10 0v3" fill="none" stroke="#999" stroke-width="3"/>');
+const H=["MY BEST FRIEND'S NAME → is → NAME","NAME → likes to eat → FOOD","THE → FOOD → IS → DESCRIPTION","HE/SHE → EATS → FOOD → PLACE"];
+const GATED=[19,20,21,22,23,2,3,4,5,7,8,9,10,11,12,13,14,15,16],SM={f:F,d:D,p:P};
+let n=1,st={},MY=null;
+const $=id=>document.getElementById(id),rnd=k=>Math.random()*k|0,shuf=a=>a.map(x=>[Math.random(),x]).sort((x,y)=>x[0]-y[0]).map(x=>x[1]);
+function say(t,f){if(MUTE&&!f)return;try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='en-GB';u.rate=.8;speechSynthesis.speak(u)}catch(e){}}
+let MUTE=false;try{MUTE=localStorage.getItem('sl_mute')=='1'}catch(e){}
+let AC;function tone(f,t,d,ty,v){if(MUTE)return;try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();const o=AC.createOscillator(),g=AC.createGain(),T=AC.currentTime+t;o.type=ty||'sine';o.frequency.value=f;g.gain.setValueAtTime(v||.15,T);g.gain.exponentialRampToValueAtTime(.001,T+d);o.connect(g);g.connect(AC.destination);o.start(T);o.stop(T+d)}catch(e){}}
+const sfx={tap:()=>tone(620,0,.06,'triangle'),ok:()=>{tone(659,0,.12);tone(880,.1,.12);tone(1319,.2,.3)},no:()=>{tone(200,0,.22,'sawtooth',.08);tone(150,.16,.3,'sawtooth',.08)}};
+const stop=()=>{try{speechSynthesis.cancel()}catch(e){}},PR=['Nice!','Amazing!','Good job!','Excellent!','Great!'],pr=()=>PR[rnd(5)];
+function shb(can,chk,nxt,rty,bad,good){return st.c?`<div class="sh good"><div class=sht>✔ ${st.pr}</div><div>${good}</div><button class="b go" onclick="${nxt}">CONTINUE</button></div>`:st.bad?`<div class="sh badx"><div class=sht>✖ Not quite</div><div>${bad}</div><button class="b rd" onclick="${rty}">TRY AGAIN</button></div>`:`<button class="b go" ${can?'':'disabled'} onclick="${chk}" style="width:100%">CHECK</button>`}
+const sents=(a,b,c,d)=>{const nm=N[a],f=F[b],ds=D[c],p=P[d];return[[["My best friend's name",'a'],['is','a'],[nm,'w']],[[nm,'w'],['likes to eat','a'],[f,'f']],[['The','a'],[f,'f'],['is','a'],[ds,'d']],[[G[a],'w'],['eats','a'],[f,'f'],[p,'p']]]};
+const txt=s=>s.map(x=>x[0]).join(' ')+'.',hl=s=>s.map(x=>`<span class=${x[1]}>${x[0]}</span>`).join(' ')+'.';
+const ins=t=>`<div class=ins><button class=spk data-t="${t}" onclick="say(this.dataset.t,1)">🔊</button><span>${t}</span></div>`;
+const ar=()=>setTimeout(()=>{try{const e=document.querySelector('.ins span');if(e)say(e.textContent)}catch(x){}},200);
+function tm(){MUTE=!MUTE;try{localStorage.setItem('sl_mute',MUTE?'1':'0')}catch(e){}if(MUTE)stop();R()}
+const sp=t=>`<button class="b sm" data-t="${t}" onclick="say(this.dataset.t,1)">🔊 LISTEN</button><button class="b sm" data-t="${t}" onclick="st.rd=1;R();say('Now read aloud!',1)">👄 READ</button>`+(st.rd?'<div class=read>🗣️ Read it aloud!</div>':'');
+const ch=(arr,k,sel,ic)=>'<div class=g>'+arr.map((x,i)=>`<button class="c${sel===i?' on':''}" onclick="pk('${k}',${i})">${ic?ic[i]+' ':''}${x}</button>`).join('')+'</div>';
+function pk(k,i){sfx.tap();st[k]=i;st.t=1;if(k=='f'&&n==4)st.d=null;R();if(SM[k]&&n!=15)say(SM[k][i])}
+const SNAP={},inL=k=>LS.some(l=>l[2].includes(k));
+function go0(i){LS[i][2].forEach(x=>delete SNAP[x]);go(LS[i][2][0])}
+function go(k){stop();sfx.tap();if(inL(n))SNAP[n]=st;n=k;st=(inL(k)&&SNAP[k])||{ok:!GATED.includes(k)};R();ar();scrollTo(0,0)}
+const LS=[['Meet the Words',FI[3],[19,20,21,22,23]],['Meet Amira',NI[0],[2,3]],['Food & Places',FI[0],[4,5,6]],['Build & Change',DI[1],[7,8]],['Your Turn',NI[1],[9,10,11]],['Missing Words',DI[0],[12,13]],['Mix & Match',PI[3],[14]],['My Food Story',FI[2],[15,16,17]]];
+let DONE=[],CL=0;try{DONE=JSON.parse(localStorage.getItem('sl_done'))||[]}catch(e){}
+const save=()=>{try{localStorage.setItem('sl_done',JSON.stringify(DONE))}catch(e){}};
+function fin(){DONE[CL]=1;save();sfx.ok();go(99)}
+function R(){const LI=LS.findIndex(l=>l[2].includes(n));if(LI>=0)CL=LI;const body=S[n]();let h='',nav='';
+ if(LI>=0){const ss=LS[LI][2],pos=ss.indexOf(n),m=ss.length;
+  h=`<div class=top><button class="b home" onclick="go(0)">✕</button><div class=bar><i style="width:${(pos+(st.ok?1:0))/m*100}%"></i></div><div class=step>${pos+1}/${m}</div><button class="b home" onclick="tm()">${MUTE?'🔇':'🔊'}</button></div>`;
+  nav=`<div class=nav><button class=b onclick="go(${pos?ss[pos-1]:0})">BACK</button><button class="b nxt" ${st.ok?'':'disabled'} onclick="${pos<m-1?`go(${ss[pos+1]})`:'fin()'}">${pos<m-1?'CONTINUE':'FINISH'}</button></div><button class="b sm hm" onclick="go(1)">HOME</button>`}
+ $('app').innerHTML=h+body+nav;document.documentElement.className=n==1?'wl':''}
+const S={};
+function vs(ti,arr,ics,mn){const sel=st.sel,sn=st.sn||{};if(Object.keys(sn).length>=arr.length)st.ok=1;st.sy=arr.map((x,i)=>x+'. '+mn[i]);
+ return ins(ti)+'<div class=g>'+arr.map((x,i)=>`<button class="c vc${sel===i?' on':''}" onclick="vk(${i})"><span class=vi>${ics[i]}</span><br>${x}${sn[i]?' ✔':''}</button>`).join('')+'</div>'+(sel!=null?`<div class="sh good pop"><div class=sht>${arr[sel]}</div><div>${mn[sel]}</div></div>`:'')}
+function vk(i){st.sel=i;(st.sn=st.sn||{})[i]=1;sfx.tap();R();say(st.sy[i])}
+S[19]=()=>vs('These are names. Tap each one.',N,NI,N.map((x,i)=>x+" is a "+(G[i]=='She'?'girl':'boy')+"'s name."));
+S[20]=()=>vs('These are foods. Tap each one.',F,FI,['Rice cooked in coconut milk, with egg and sambal.','A flat, round bread.','A cold, sweet dessert with green jelly.','Soft rice that we eat hot.'])+'<div class=hint>eat = put food in your mouth.<br>likes to eat = enjoys eating.</div>';
+S[21]=()=>vs('These words tell us about food. Tap each one.',D,DI,['It has a hot taste, like chilli.','It is not hard. It feels gentle.','It tastes like sugar.','It is thick and smooth, like milk.']);
+S[22]=()=>vs('These are places. Tap each one.',P,PI,['A place where we go to buy and eat food.','A big place with many food stalls.','Beside the road.','The place where we live.']);
+const VQ=[['F',2],['D',0],['P',3],['F',0],['D',3],['P',1]],VS={F:[F,FI],D:[D,DI],P:[P,PI]};
+S[23]=()=>{const q=st.q||0,[t,i]=VQ[q],[w,ic]=VS[t];if(!st.vo)st.vo=shuf([i,...shuf([0,1,2,3].filter(x=>x!=i)).slice(0,2)]);if(st.c&&q==5)st.ok=1;
+ return ins('Which picture is '+w[i]+'?')+'<div class=g>'+st.vo.map(j=>`<button class="c vo${st.sel===j?' on':''}" onclick="vsel(${j})">${ic[j]}</button>`).join('')+'</div>'+shb(st.sel!=null,'vchk()','vnx()','vrt()','Look at the pictures again. Tap the speaker to hear the word.',w[i])};
+function vsel(j){if(st.c||st.bad)return;st.sel=j;sfx.tap();R()}
+function vchk(){if(st.sel==VQ[st.q||0][1]){st.c=1;st.pr=pr();sfx.ok()}else{st.bad=1;sfx.no()}R()}
+function vrt(){st.bad=0;st.sel=null;R()}
+function vnx(){stop();if((st.q||0)>=5){fin();return}st.q=(st.q||0)+1;st.vo=0;st.sel=null;st.c=0;st.bad=0;R();ar()}
+S[0]=()=>{const cur=LS.findIndex((l,i)=>!DONE[i]),X=[0,44,60,30,-30,-60,-30,0];return `<div style="display:flex;justify-content:space-between"><button class="b sm" onclick="go(1)">HOME</button><button class="b sm" onclick="tm()">${MUTE?'🔇':'🔊'}</button></div><div class=unit><small>UNIT 1</small><br>My Best Friend's Food Story</div>`+LS.map((l,i)=>{const dn=DONE[i],lk=!dn&&i!=cur;return `<div style="transform:translateX(${X[i]}px);margin:6px 0 16px">${i==cur?'<div class=bub>START</div>':''}<button class="node ${dn?'dn':lk?'lk':''}" ${lk?'disabled':''} onclick="go0(${i})">${dn?'✔':lk?LOCK:l[1]}</button><div class=lt>${l[0]}</div></div>`}).join('')+(cur<0?'<button class="b go" onclick="go(18)">🎉 FINISH</button>':'')+(st.rc?'<div class="sh badx"><div class=sht>Start all lessons again?</div><button class="b rd" onclick="DONE=[];save();st.rc=0;R()">YES, RESET</button><button class="b" onclick="st.rc=0;R()">CANCEL</button></div>':'<br><button class="b sm" onclick="st.rc=1;R()">↺ RESET</button>')};
+S[99]=()=>{const nx=LS[CL+1];return `<div class=big>🎉</div><h1>Lesson complete!</h1><p>${LS[CL][1]} ${LS[CL][0]}</p><p>${nx?'Next: '+nx[1]+' '+nx[0]:'You finished every lesson!'}</p><button class="b go" onclick="${nx?'go(0)':'go(18)'}">CONTINUE</button>`};
+S[1]=()=>`<div class=hero><div class=tls><span class=tl style="background:var(--wb)">NAME</span><b>+</b><span class=tl style="background:var(--ab);animation-delay:.3s">LIKES TO EAT</span><b>+</b><span class=tl style="background:var(--fb);animation-delay:.6s">FOOD</span><b>+</b><span class=tl style="background:var(--hb);animation-delay:.9s">PLACE</span></div><div class=ht>My Best Friend's</div><div class=hb><i>FOOD</i> STORY</div><svg class=fl viewBox="0 0 300 190" width="280" role="img" aria-label="A bowl of food"><circle cx="150" cy="100" r="74" fill="#7fe03a"/><g fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" class=st><path d="M118 72q-10-12 0-24t0-22"/><path d="M150 66q-10-12 0-24t0-22"/><path d="M182 72q-10-12 0-24t0-22"/></g><circle cx="114" cy="100" r="17" fill="#b8f08a"/><circle cx="150" cy="92" r="20" fill="#f0ffe0"/><circle cx="187" cy="100" r="17" fill="#3f9e00" stroke="#fff" stroke-width="2"/><path d="M58 108h184a92 72 0 0 1-184 0z" fill="#fff"/><path d="M70 130q80 24 160 0l-6 10q-74 24-148 0z" fill="#3f9e00"/><ellipse cx="150" cy="108" rx="92" ry="11" fill="#d7ffb8"/><circle cx="40" cy="40" r="5" fill="#fff" class=st/><circle cx="262" cy="52" r="7" fill="#fff" class=st/><circle cx="250" cy="150" r="4" fill="#fff" class=st/><circle cx="30" cy="140" r="6" fill="#fff" class=st/></svg><div class=hp>Learn • Build • Practise • Write</div><p style="text-shadow:0 2px 0 #0003">Let's learn how to make sentences!</p><button class="b start" onclick="go(0)">GET STARTED</button></div>`;
+S[2]=()=>`<div class=big>${NI[0]}</div><h2>Amira</h2>`+(st.r?(st.ok=1,`<div class="sb pop"><span class=a>My best friend's name is</span> <span class=w>Amira</span>.</div><p>Amira is the name.</p>${sp("My best friend's name is Amira.")}`):`${ins('Who is my best friend?')}<button class="b go" onclick="st.r=1;R();say('Amira')">👀 SHOW ME</button>`);
+S[3]=()=>{const f=st.f||0;if(st.t)st.ok=1;return `<div class=big>${NI[0]}${FI[f]}</div><div class=g3><span class=w>Amira</span> + <span class=a>likes to eat</span> + <span class=f>${F[f]}</span></div><div class="sb pop">⭐ ${hl(sents(0,f,0,0)[1])}</div><p>NAME + likes to eat + FOOD</p>${ins('Tap a food.')}${ch(F,'f',f,FI)}`};
+S[4]=()=>{const f=st.f||0,d=st.d;if(d!=null)st.ok=1;return `<div class=big>${FI[f]}</div>${ins('What is the '+F[f]+' like?')}${ch(D,'d',d,DI)}`+(d!=null?`<div class="sb pop">${hl(sents(0,f,d,0)[2])}</div><div class=hint>THE + FOOD + IS + DESCRIPTION</div><p>These words tell us about the food.</p><p>Try another food:</p>${ch(F,'f',f,FI)}`:'')};
+S[5]=()=>{const p=st.p||0;if(st.t)st.ok=1;return `<div class=big>${NI[0]}${FI[0]}</div>${ins('Where does she eat?')}<div class=g3><span class=w>She</span> + <span class=a>eats</span> + <span class=f>nasi lemak</span> + <span class=p>${P[p]}</span></div><div class="sb pop">⭐ ${hl(sents(0,0,0,p)[3])}</div><div class=hint>HE/SHE + EATS + FOOD + PLACE</div><p>Change the place:</p>${ch(P,'p',p,PI)}`};
+S[6]=()=>{const S4=sents(0,0,0,0);return `<h2>📖 AMIRA'S FOOD STORY</h2><div class=book>${S4.map((s,i)=>`${i+1}. ${hl(s)}<br>`).join('')}</div><p>These four sentences tell us about the same friend and food.</p>${sp(S4.map(txt).join(' '))}`};
+function bs(c,h,mode){const [a,b,d,p]=c,S4=sents(a,b,d,p),i=st.si||0,r=st.r||1;st.h=h;
+ const cue=`<div class=sb style="font-size:20px">${NI[a]} ${N[a]} &nbsp;${FI[b]} ${F[b]} &nbsp;${DI[d]} ${D[d]} &nbsp;${PI[p]} ${P[p]}</div>`,done=S4.slice(0,i).map((s,j)=>`<div class=line>${j+1}. ${hl(s)}</div>`).join('');
+ const rt=mode=='mix'?`<p><b>Combination ${r} of 3</b></p>`:'';
+ if(i>=4){st.ok=mode!='mix'||r>=3;return rt+cue+`<h2>🌟 Great story!</h2><div class=book>${done}</div><p>🎤 SAY IT! Read all 4 sentences.</p>`+sp(S4.map(txt).join(' '))+(mode=='mix'&&r<3?'<br><button class="b go" onclick="nr()">🎲 NEW COMBINATION ▶</button>':'')}
+ if(!st.b){st.b=shuf(S4[i].map((x,j)=>j));st.a=[];st.w=st.w||0}
+ const s=S4[i],A=st.a,full=A.length==st.b.length;st.cur=txt(s);
+ const bad='Look at the pattern: '+H[i];
+ return rt+cue+`${ins('Tap the words to make the sentence.')}`+(done?`<div class=book>${done}</div>`:'')+(h==2||st.w>=(h==1?1:2)?`<div class=hint>💡 ${H[i]}</div>`:'')+`<div class="sb" style="font-size:20px">${A.length?A.map((j,k)=>`<span class=slot onclick="ub(${k})">${s[j][0]}</span>`).join(' '):'&nbsp;'}</div>`+(A.length&&!st.c&&!st.bad?'<button class="b sm" onclick="ub(st.a.length-1)">↩ UNDO</button><button class="b sm" onclick="st.a=[];R()">✖ CLEAR</button><div style="font-size:15px">Tap a word in the box to take it back.</div>':'')+(st.c||st.bad?'':`<div class=g>${st.b.map(j=>A.includes(j)?'':`<button class=c onclick="tb(${j})">${s[j][0]}</button>`).join('')}</div>`)+shb(full,'chk()','nb()','rt()',st.w>=(h==2?0:h==1?1:2)?bad:'Look carefully and try again.',st.cur)}
+function tb(j){if(st.c||st.bad||st.a.length>=st.b.length)return;st.a.push(j);sfx.tap();R()}
+function ub(k){if(st.c||st.bad||k<0)return;st.a.splice(k,1);sfx.tap();R()}
+function chk(){if(st.a.every((x,k)=>x==k)){st.c=1;st.pr=pr();sfx.ok();R();say(st.cur)}else{st.w++;st.bad=1;sfx.no();R()}}
+function rt(){st.bad=0;st.a=[];R()}
+function nb(){stop();st.bad=0;st.si=(st.si||0)+1;st.b=0;st.a=[];st.c=0;st.m='';st.w=0;st.rd=0;R();scrollTo(0,0);ar()}
+function nr(){stop();st.bad=0;st.r=(st.r||1)+1;st.cb=null;st.si=0;st.b=0;st.a=[];st.c=0;st.m='';st.w=0;st.rd=0;R();scrollTo(0,0);ar()}
+S[7]=()=>`<h2>🧱 Build Amira's story</h2>`+bs([0,0,0,0],2);
+S[8]=()=>{const c=st.v?1:0,S4=sents(c,c,c,c),T=[['NAME',N[c],'--wb'],['FOOD',F[c],'--fb'],['DESCRIPTION',D[c],'--db'],['PLACE',P[c],'--hb']];if(st.v)st.ok=1;
+ return `<h2>✨ Change the words!</h2><div class=bx>${T.map(x=>`<div class="${st.v?'pop':''}" style="background:var(${x[2]})"><small>${x[0]}</small>${x[1]}</div>`).join('')}</div><div class=book>${S4.map(s=>hl(s)+'<br>').join('')}</div>`+(st.v?`<p class=ok><b>The sentence pattern stays the same. We change the words.</b></p><button class="b sm" onclick="st.v=0;R()">↩ Back to Amira</button>`:'<button class="b go" onclick="st.v=1;R()">✨ CHANGE THE WORDS</button>')};
+S[9]=()=>`<h2>${NI[1]} Your turn: Sam</h2>`+bs([1,1,1,1],2);
+S[10]=()=>`<h2>${NI[2]} Your turn: Randeep</h2>`+bs([2,2,2,2],1);
+S[11]=()=>`<h2>${NI[3]} Your turn: Nithya</h2>`+bs([3,3,3,3],0);
+function sbf(ps){const pi=st.pi||0,qi=st.qi||0,a=ps[pi],pr=G[a],f=F[a],ds=D[a],pn=PN[a],nm=N[a];st.pl=ps.length;
+ const ans=["best friend's",'likes',ds,'eats',pn],L=["My {0} name is "+nm+".",nm+" {1} to eat "+f+".","The "+f+" is {2}.",pr+" {3} "+f+" "+PRE[a]+" {4}."],LO=[0,1,2,3,3];
+ const OP=[["best friend's",'best friend','likes','eats'],['likes','like','eats','is'],[ds,...shuf(D.filter(x=>x!=ds)).slice(0,2),'likes'],['eats','eat','is','name'],[pn,...shuf(PN.filter(x=>x!=pn)).slice(0,2),'name']],
+ CL=[`Whose name is it? Think: my ___ name is ${nm}.`,`What word tells us what ${nm} likes to do?`,`Look at the pictures at the top. What is the ${f} like?`,`What does ${pr} do with the food?`,`Look at the pictures at the top. Where does ${pr} eat?`];
+ const fill=(l,upto)=>l.replace(/\{(\d)\}/g,(m,k)=>k<=upto?`<b class=f>${ans[k]}</b>`:(k==qi?'<span class=blank>?????</span>':'______'));
+ const upto=st.fin?9:(st.c?qi:qi-1),par=L.map(l=>fill(l,upto)).join('<br>');
+ const head=`<h2>🔍 Find the missing word</h2><div class=sb style="font-size:17px">${NI[a]} ${nm} &nbsp;${FI[a]} ${f} &nbsp;${DI[a]} ${ds} &nbsp;${PI[a]} ${P[a]}</div><p>${nm}'s paragraph (${pi+1} of ${ps.length})</p><div class=book>${par}</div>`;
+ if(st.fin){st.ok=1;return head+'<h2>🎉 Well done!</h2>'+sp(L.map(l=>l.replace(/\{(\d)\}/g,(m,k)=>ans[k])).join(' '))}
+ if(!st.o)st.o=shuf(OP[qi]);
+ const line=L[LO[qi]].replace(/\{(\d)\}/g,(m,k)=>k<=qi?ans[k]:'___');st.cl=CL[qi];st.ln=line;st.ans=ans[qi];
+ return head+(st.c||st.bad?'':ins('Select the missing word.'))+st.o.map((x,i)=>`<button class="c opt${st.sel===i?' on':''}" onclick="ab(${i})">${x}</button>`).join('')+shb(st.sel!=null,'chk2()','nq()','rt2()','💡 CLUE: '+st.cl,'We say: '+line)}
+function ab(i){if(st.c||st.bad)return;st.sel=i;sfx.tap();R()}
+function chk2(){if(st.o[st.sel]==st.ans){st.c=1;st.pr=pr();sfx.ok();R();say(st.ln.replace(/_+/g,''))}else{st.bad=1;sfx.no();R()}}
+function rt2(){st.bad=0;st.sel=null;R()}
+function nq(){stop();st.sel=null;st.bad=0;const qi=st.qi||0,pi=st.pi||0;if(qi<4)st.qi=qi+1;else if(pi<st.pl-1){st.pi=pi+1;st.qi=0}else st.fin=1;st.o=0;st.c=0;st.m='';st.rd=0;R();scrollTo(0,0);ar()}
+S[12]=()=>sbf([0,1]);S[13]=()=>sbf([2,3]);
+S[14]=()=>{if(!st.cb)st.cb=[rnd(4),rnd(4),rnd(4),rnd(4)];return `<h2>🎲 Mix & Match</h2>${ins('Can you make the 4 sentences?')}`+bs(st.cb,0,'mix')};
+S[15]=()=>{const q=[st.qn,st.qf,st.qd,st.qp],all=q.every(x=>x!=null),v=(a,i)=>i!=null?a[i]:'________';if(all){MY=q;st.ok=1}
+ return `<h2>🧠 PLAN YOUR SENTENCES</h2>${ins('Choose your friend, food, description and place.')}<p>👤 NAME</p>${ch(N,'qn',st.qn,NI)}<p>🍚 FOOD</p>${ch(F,'qf',st.qf,FI)}<p>😋 DESCRIPTION</p>${ch(D,'qd',st.qd,DI)}<p>📍 PLACE</p>${ch(P,'qp',st.qp,PI)}<div class=book>My friend: ${v(N,q[0])}<br>Food: ${v(F,q[1])}<br>Food is: ${v(D,q[2])}<br>Place: ${v(P,q[3])}</div>`+(all?'<button class="b go" onclick="go(16)">▶ BUILD MY SENTENCES</button>':'')};
+const my4=()=>sents(...(MY||[0,0,0,0]));
+S[16]=()=>{st.ok=1;const S4=my4();return `<h2>🌟 MY FOOD STORY 🌟</h2><div class=book>${S4.map((s,i)=>`${i+1}. ${hl(s)}<br>`).join('')}</div><p>Read all 4 sentences aloud.</p>`+sp(S4.map(txt).join(' '))};
+S[17]=()=>{const S4=my4();return `<h2>📖 NOW IT'S TIME TO WRITE!</h2>${ins('Take your English exercise book. Copy your four sentences.')}<div class=hint>✏️ WRITE THIS</div><div class=book style="font-size:27px;line-height:1.5">${S4.map((s,i)=>`${i+1}. ${txt(s)}<br>`).join('')}</div><div class=hint>⭐ CHALLENGE: Add 2 more simple sentences.</div><p>✏️ Write them in your exercise book. No need to type here.</p>`+sp(S4.map(txt).join(' '))};
+S[18]=()=>`<h1>🎉 WELL DONE!</h1><p>Today I learned:</p><div class=book style="text-align:center">👤 NAME<br>↓<br>🍴 LIKES TO EAT<br>↓<br>🍚 FOOD<br>↓<br>😋 FOOD DESCRIPTION<br>↓<br>📍 WHERE</div><h2>⭐ I can make sentences!</h2><p>✏️ I can write.<br>🎤 I can say my sentences.</p><button class="b go" onclick="go(0)">BACK TO LESSONS</button><br><button class="b sm" onclick="go(1)">HOME</button>`;
+go(1);
+</script></body></html>
